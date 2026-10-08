@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gregory Jewels — Atelier di alta gioielleria italiana</title>
+<meta name="description" content="Gregory Jewels: alta gioielleria italiana fatta a mano. Pezzi unici, pietre rare, diamanti etici e creazioni su misura. Prenota una consulenza privata.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/cormorant-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="fonts/montserrat-300.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="css/tailwind.css">
+<script src="js/reveal.js"></script>
+</head>
+<body class="atelier">
+
+<a href="#contenuto" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-ink focus:px-4 focus:py-2 focus:text-ivory">Vai al contenuto</a>
+
+<header class="site-header sticky top-0 border-b border-hair bg-ivory">
+  <div class="flex items-center justify-between px-gutter py-3">
+    <a href="home-1-atelier.html" class="logo-lock enter-fade" style="--d:0" aria-label="Gregory Jewels — Home">
+      <img src="img/logo-mark.png" width="269" height="400" alt="">
+      <span class="logo-word">GREGORY JEWELS</span>
+    </a>
+    <nav class="hidden items-center gap-9 lg:flex" aria-label="Principale">
+      <a class="nav-link link-u" href="#maison">Maison</a>
+      <a class="nav-link link-u" href="#creazioni">Creazioni</a>
+      <a class="nav-link link-u" href="#su-misura">Su Misura</a>
+      <a class="nav-link link-u" href="#atelier">Atelier</a>
+      <a class="nav-link link-u" href="#contatti">Contatti</a>
+      <a class="nav-link link-u soon" href="#newsletter" aria-label="Boutique, prossimamente">Boutique<small>prossimamente</small></a>
+    </nav>
+    <button class="burger label lg:hidden" popovertarget="menu" aria-label="Apri il menu">Menu<span class="burger__bars" aria-hidden="true"></span></button>
+  </div>
+</header>
+
+<nav id="menu" popover class="menu on-dark" aria-label="Menu principale">
+  <div class="flex h-full flex-col px-gutter py-3">
+    <div class="flex items-center justify-between">
+      <span class="logo-lock"><img src="img/logo-mark-light.png" width="269" height="400" alt=""><span class="logo-word">GREGORY JEWELS</span></span>
+      <button class="burger label" popovertarget="menu" popovertargetaction="hide" aria-label="Chiudi il menu">Chiudi</button>
+    </div>
+    <ul class="my-auto font-serif text-[clamp(2.6rem,12vw,4.5rem)] leading-[1.15]">
+      <li class="menu__item" style="--i:0"><a href="#maison">Maison</a></li>
+      <li class="menu__item" style="--i:1"><a href="#creazioni">Creazioni</a></li>
+      <li class="menu__item" style="--i:2"><a href="#su-misura">Su Misura</a></li>
+      <li class="menu__item" style="--i:3"><a href="#atelier">Atelier</a></li>
+      <li class="menu__item" style="--i:4"><a href="#contatti">Contatti</a></li>
+      <li class="menu__item opacity-60" style="--i:5"><a class="num" href="#newsletter">Boutique <span class="label not-italic">prossimamente</span></a></li>
+    </ul>
+    <p class="label label--gold pb-6">info@gregoryjewels.com · @gregoryjewels</p>
+  </div>
+</nav>
+
+<main id="contenuto">
+
+  <!-- ============ HERO ============ -->
+  <section class="px-gutter pb-16 pt-10 md:pb-24 md:pt-14" aria-labelledby="h-hero">
+    <div class="grid items-end gap-x-8 gap-y-12 md:grid-cols-12 md:min-h-[calc(100svh-9rem)]">
+      <div class="md:col-span-7 md:pb-4">
+        <p class="label label--gold enter" style="--d:.05">Atelier di alta gioielleria · Italia</p>
+        <h1 id="h-hero" class="mt-8 text-[clamp(2.9rem,6.5vw,7.2rem)] leading-[.98] tracking-[-.015em]">
+          <span class="ml enter-line"><span style="--d:.15;--i:0">Alta gioielleria,</span></span>
+          <span class="ml enter-line"><span style="--d:.15;--i:1">fatta <em class="ml-i">a mano</em>,</span></span>
+          <span class="ml enter-line"><span style="--d:.15;--i:2">pezzo per pezzo.</span></span>
+        </h1>
+        <div class="mt-10 grid gap-8 md:grid-cols-[minmax(0,26rem)_auto] md:items-end md:gap-14">
+          <p class="prose-it enter" style="--d:.6">Un atelier italiano che disegna e costruisce gioielli unici, dalla prima linea sul foglio all’ultima pietra incastonata. Un solo esemplare per ogni idea.</p>
+          <a href="#creazioni" class="cta enter justify-self-start" style="--d:.8">Scopri le creazioni <span class="cta__arrow" aria-hidden="true"></span></a>
+        </div>
+      </div>
+      <figure class="relative md:col-span-5 md:-mr-gutter">
+        <div class="frame enter-unveil aspect-[4/5] md:aspect-auto md:h-[calc(100svh-10rem)]" style="--d:0">
+          <img class="kenburns hero-img" src="img/filosofia-orecchini-oro.jpg" width="1200" height="1800" alt="Creoli in oro giallo intrecciato appoggiati a un ciottolo bianco, nella luce radente del mattino" fetchpriority="high">
+        </div>
+        <figcaption class="label mt-4 flex justify-between text-ink-soft enter-fade" style="--d:1"><span>N° 00 — Creoli Torchon</span><span>Oro giallo 18 kt</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 01 MAISON ============ -->
+  <section id="maison" class="px-gutter py-section" aria-labelledby="h-maison">
+    <div class="grid gap-y-14 md:grid-cols-12 md:gap-x-8">
+      <p class="label md:col-span-3"><span class="num mr-3 text-base normal-case tracking-normal text-gold-deep">01</span>Maison</p>
+      <div class="md:col-span-9">
+        <h2 id="h-maison" class="text-h2 tracking-[-.012em]" data-reveal="mask">
+          <span class="ml"><span style="--i:0">Non facciamo collezioni.</span></span>
+          <span class="ml"><span style="--i:1">Facciamo un gioiello alla volta,</span></span>
+          <span class="ml"><span style="--i:2"><em class="ml-i">per una persona sola.</em></span></span>
+        </h2>
+      </div>
+      <figure class="md:col-span-5 md:col-start-1 md:mt-10">
+        <div class="frame aspect-[3/2]" data-reveal="image">
+          <img src="img/storia-mani-artigiane.jpg" width="1200" height="800" loading="lazy" alt="Mani che infilano perle d’oro su un telaietto, accanto a una pinza e a un sacchetto di velluto nero">
+        </div>
+        <figcaption class="label mt-3 text-ink-soft">Il banco, di mattina</figcaption>
+      </figure>
+      <div class="grid gap-6 md:col-span-5 md:col-start-8 md:mt-28" data-reveal="stagger">
+        <p class="lead" style="--i:0">Gregory Jewels è un atelier italiano. Ogni pezzo nasce da un colloquio, diventa un bozzetto, passa per le mani di chi lo costruisce e non viene mai replicato.</p>
+        <p class="prose-it" style="--i:1">Lavoriamo l’oro, il platino e le pietre con tecniche che richiedono tempo: fusione, saldatura, cesello, incastonatura a mano. Il tempo, per noi, è uno dei materiali.</p>
+        <a href="#atelier" class="link-u label self-start" style="--i:2">Entra nell’atelier</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 CREAZIONI ============ -->
+  <section id="creazioni" class="bg-ivory-deep px-gutter py-section" aria-labelledby="h-creazioni">
+    <div class="flex flex-wrap items-end justify-between gap-6 hair-b pb-8">
+      <h2 id="h-creazioni" class="text-h2" data-reveal="mask"><span class="ml"><span><span class="num mr-4 text-[.4em] text-gold-deep">02</span>Creazioni scelte</span></span></h2>
+      <p class="prose-it" data-reveal>Una selezione di pezzi unici, presentati come in una mostra. Nessun listino: ogni gioiello si conosce di persona.</p>
+    </div>
+
+    <!-- Shop-ready: ogni <li class="piece"> diventerà una card prodotto (data-piece = SKU).
+         Aggiungere qui .piece__price, .piece__cta e avvolgere il frame in <a href="/creazioni/slug">. -->
+    <ul class="mt-16 grid gap-y-20 md:grid-cols-12 md:gap-x-8 md:gap-y-32">
+
+      <li class="piece md:col-span-8" data-piece="gj-001">
+        <div class="frame aspect-[3/2]" data-reveal="image"><img src="img/gallery-anello-solitario.jpg" width="900" height="600" loading="lazy" alt="Anello solitario con diamante taglio brillante in castone di oro rosa e pavé, su base nera"></div>
+      </li>
+      <li class="piece flex flex-col justify-end md:col-span-4" data-reveal data-piece-caption="gj-001">
+        <div class="piece__meta"><span class="label label--gold">N° 01</span><h3 class="piece__name">Solitario Aurora</h3><p class="piece__spec">Platino e oro rosa 18 kt · Diamante taglio brillante, pavé</p></div>
+      </li>
+
+      <li class="piece md:col-span-4 md:col-start-2" data-piece="gj-002">
+        <div class="frame aspect-[2/3]" data-reveal="image"><img src="img/gallery-collana-pietra-colore.jpg" width="900" height="1350" loading="lazy" alt="Collana a più fili in oro con pietra blu sfaccettata e mezzaluna di brillanti"></div>
+        <div class="piece__meta mt-5" data-reveal><span class="label label--gold">N° 02</span><h3 class="piece__name">Luna Crescente</h3><p class="piece__spec">Oro giallo 18 kt · Pietra di colore, brillanti</p></div>
+      </li>
+      <li class="piece md:col-span-4 md:col-start-8 md:mt-40" data-piece="gj-003">
+        <div class="frame aspect-[2/3]" data-reveal="image"><img src="img/gallery-orecchini-pendenti.jpg" width="900" height="1350" loading="lazy" alt="Orecchini pendenti con pietra blu a goccia e baguette di cristallo su foglia verde"></div>
+        <div class="piece__meta mt-5" data-reveal><span class="label label--gold">N° 03</span><h3 class="piece__name">Notte Blu</h3><p class="piece__spec">Pendenti · Pietra blu a goccia, baguette</p></div>
+      </li>
+
+      <li class="piece flex flex-col justify-end md:col-span-4 md:col-start-1" data-reveal data-piece-caption="gj-004">
+        <div class="piece__meta"><span class="label label--gold">N° 04</span><h3 class="piece__name">Bracciale Paisley</h3><p class="piece__spec">Oro giallo e bianco · Pavé di diamanti</p></div>
+      </li>
+      <li class="piece md:col-span-8" data-piece="gj-004">
+        <div class="frame aspect-[3/2]" data-reveal="image"><img src="img/gallery-bracciale-oro.jpg" width="900" height="600" loading="lazy" alt="Bracciale rigido in oro con motivi paisley tempestati di piccoli diamanti, su fondo rosato"></div>
+      </li>
+
+      <li class="piece md:col-span-5 md:col-start-2" data-piece="gj-005">
+        <div class="frame aspect-[2/3]" data-reveal="image"><img src="img/bespoke-bozzetto-collier.jpg" width="1200" height="1798" loading="lazy" alt="Parure in oro con smalti e smeraldi accanto al bozzetto a matita da cui è nata"></div>
+        <div class="piece__meta mt-5" data-reveal><span class="label label--gold">N° 05 · Su misura</span><h3 class="piece__name">Parure Giardino</h3><p class="piece__spec">Oro 22 kt, smalti · Smeraldi, peridoti</p></div>
+      </li>
+      <li class="piece md:col-span-4 md:col-start-9 md:mt-64" data-piece="gj-006">
+        <div class="frame aspect-[4/3]" data-reveal="image"><img src="img/lab-incastonatura.jpg" width="900" height="582" loading="lazy" alt="Coppia di orecchini a lobo in oro bianco con diamante centrale e halo di brillanti"></div>
+        <div class="piece__meta mt-5" data-reveal><span class="label label--gold">N° 06</span><h3 class="piece__name">Lobo Lumière</h3><p class="piece__spec">Oro bianco · Diamanti taglio brillante, halo</p></div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ 03 SU MISURA ============ -->
+  <section id="su-misura" class="px-gutter py-section" aria-labelledby="h-misura">
+    <div class="grid gap-y-14 md:grid-cols-12 md:gap-x-8">
+      <div class="md:col-span-5">
+        <div class="md:sticky md:top-28">
+          <p class="label"><span class="num mr-3 text-base normal-case tracking-normal text-gold-deep">03</span>Su Misura</p>
+          <h2 id="h-misura" class="mt-8 text-h2" data-reveal="mask">
+            <span class="ml"><span style="--i:0">Un gioiello</span></span>
+            <span class="ml"><span style="--i:1">nasce da una</span></span>
+            <span class="ml"><span style="--i:2"><em class="ml-i">conversazione.</em></span></span>
+          </h2>
+          <p class="prose-it mt-8" data-reveal>Hai un’idea, una pietra di famiglia da reinterpretare, una data da onorare. Ti riceviamo in atelier o in videochiamata, con calma e senza impegno.</p>
+          <a href="#contatti" class="cta mt-10" data-reveal>Prenota una consulenza <span class="cta__arrow" aria-hidden="true"></span></a>
+          <div class="frame mt-14 hidden aspect-[2/3] max-w-xs md:block" data-reveal="image"><img src="img/bespoke-bozzetto-rubini.jpg" width="900" height="1349" loading="lazy" alt="Bozzetto colorato di una parure di rubini con un anello in oro e smalti rossi, lente e pinze"></div>
+        </div>
+      </div>
+      <ol class="md:col-span-6 md:col-start-7" data-reveal="stagger">
+        <li class="grid grid-cols-[3.2rem_1fr] gap-x-4 hair-t py-9" style="--i:0"><span class="num text-3xl text-gold-deep">i.</span><div><h3 class="text-h3">Ascolto</h3><p class="prose-it mt-3">Un primo incontro privato. Parliamo di chi lo indosserà, di quando, di cosa deve ricordare. Portare un’immagine aiuta; non è necessario.</p></div></li>
+        <li class="grid grid-cols-[3.2rem_1fr] gap-x-4 hair-t py-9" style="--i:1"><span class="num text-3xl text-gold-deep">ii.</span><div><h3 class="text-h3">Bozzetto</h3><p class="prose-it mt-3">Il disegno a mano, a matita e acquerello, con proporzioni e volumi. Lo correggiamo insieme finché non somiglia a ciò che avevi in mente.</p></div></li>
+        <li class="grid grid-cols-[3.2rem_1fr] gap-x-4 hair-t py-9" style="--i:2"><span class="num text-3xl text-gold-deep">iii.</span><div><h3 class="text-h3">Selezione delle pietre</h3><p class="prose-it mt-3">Ti mostriamo gemme certificate, una accanto all’altra, alla luce naturale. Scegli con gli occhi, con la lente e con noi.</p></div></li>
+        <li class="grid grid-cols-[3.2rem_1fr] gap-x-4 hair-t hair-b py-9" style="--i:3"><span class="num text-3xl text-gold-deep">iv.</span><div><h3 class="text-h3">Realizzazione e consegna</h3><p class="prose-it mt-3">Fusione, lavorazione e incastonatura in atelier. Ti aggiorniamo a ogni passaggio e consegniamo il gioiello con il suo bozzetto originale.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 04 VALORI ============ -->
+  <section class="bg-ink px-gutter py-section text-ivory on-dark" aria-labelledby="h-valori">
+    <div class="grid gap-y-12 md:grid-cols-12 md:gap-x-8">
+      <p class="label md:col-span-3"><span class="num mr-3 text-base normal-case tracking-normal text-gold">04</span>Principi</p>
+      <h2 id="h-valori" class="sr-only">Principi dell’atelier</h2>
+      <ul class="md:col-span-9" data-reveal="stagger">
+        <li class="grid gap-4 hair-t py-10 md:grid-cols-[1fr_20rem] md:items-end" style="--i:0"><h3 class="text-h2"><em class="ml-i">Pietre</em> rare</h3><p class="prose-it">Cerchiamo gemme con carattere, non solo con certificato: colore vivo, taglio onesto, origine dichiarata.</p></li>
+        <li class="grid gap-4 hair-t py-10 md:grid-cols-[1fr_20rem] md:items-end" style="--i:1"><h3 class="text-h2">Diamanti <em class="ml-i">etici</em></h3><p class="prose-it">Solo diamanti tracciabili, con provenienza documentata e nessun legame con zone di conflitto.</p></li>
+        <li class="grid gap-4 hair-t hair-b py-10 md:grid-cols-[1fr_20rem] md:items-end" style="--i:2"><h3 class="text-h2">Esemplare <em class="ml-i">unico</em></h3><p class="prose-it">Il disegno non viene replicato. Se un pezzo è tuo, resta soltanto tuo.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ ATELIER (full-bleed) ============ -->
+  <section id="atelier" class="relative" aria-labelledby="h-atelier">
+    <div class="frame aspect-[4/5] md:aspect-[16/8]" data-reveal="image"><img src="img/hero-chi-sono.jpg" width="1920" height="1278" loading="lazy" alt="Le mani di un gioielliere, con la lente sul volto, incastonano una pietra su un anello d’oro"></div>
+    <div class="px-gutter py-12 md:absolute md:inset-x-0 md:bottom-0 md:py-14 md:text-ivory on-dark">
+      <div class="grid gap-6 md:grid-cols-12 md:gap-x-8">
+        <p class="label md:col-span-3"><span class="num mr-3 text-base normal-case tracking-normal md:text-gold">05</span>Atelier</p>
+        <h2 id="h-atelier" class="text-h3 md:col-span-7 md:text-[clamp(1.8rem,3.4vw,3.2rem)]" data-reveal>Dal banco escono solo i pezzi che indosseremmo noi.</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JOURNAL / INSTAGRAM ============ -->
+  <section class="px-gutter py-section" aria-labelledby="h-journal">
+    <div class="grid gap-y-14 md:grid-cols-12 md:gap-x-8">
+      <div class="md:col-span-6">
+        <h2 id="h-journal" class="text-h3 hair-b pb-6" data-reveal><span class="label label--gold mr-3 align-middle">06</span>Journal</h2>
+        <ul data-reveal="stagger">
+          <li class="hair-b" style="--i:0"><a href="#journal" class="group flex items-baseline justify-between gap-6 py-7"><span class="font-serif text-2xl leading-tight md:text-3xl link-u">Come nasce un bozzetto</span><span class="label text-ink-soft">N° 03</span></a></li>
+          <li class="hair-b" style="--i:1"><a href="#journal" class="group flex items-baseline justify-between gap-6 py-7"><span class="font-serif text-2xl leading-tight md:text-3xl link-u">Il rubino cabochon, una lettura da vicino</span><span class="label text-ink-soft">N° 02</span></a></li>
+          <li class="hair-b" style="--i:2"><a href="#journal" class="group flex items-baseline justify-between gap-6 py-7"><span class="font-serif text-2xl leading-tight md:text-3xl link-u">Diamanti tracciabili: cosa chiediamo ai fornitori</span><span class="label text-ink-soft">N° 01</span></a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-5 md:col-start-8">
+        <p class="label label--gold" data-reveal>@gregoryjewels</p>
+        <ul class="mt-6 grid grid-cols-2 gap-3" data-reveal="stagger">
+          <li style="--i:0"><a href="https://www.instagram.com/gregoryjewels/" class="frame block aspect-square" aria-label="Instagram: fusione alla fiamma"><img src="img/lab-fusione-fiamma.jpg" width="900" height="675" loading="lazy" alt="Fiamma di saldatura su un anello d’oro appoggiato a un blocco di pomice"></a></li>
+          <li style="--i:1"><a href="https://www.instagram.com/gregoryjewels/" class="frame block aspect-square" aria-label="Instagram: banco di lavoro"><img src="img/lab-banco-strumenti.jpg" width="900" height="1125" loading="lazy" alt="Bobina di filo, pinze e piccole componenti in oro sul banco di lavoro"></a></li>
+          <li style="--i:2"><a href="https://www.instagram.com/gregoryjewels/" class="frame block aspect-square" aria-label="Instagram: saldatura"><img src="img/lab-saldatura-flusso.jpg" width="900" height="675" loading="lazy" alt="Una mano applica il flusso su un anello mentre la fiamma lo scalda"></a></li>
+          <li style="--i:3"><a href="https://www.instagram.com/gregoryjewels/" class="frame block aspect-square" aria-label="Instagram: orecchini"><img src="img/hero-contatti.jpg" width="1920" height="1000" loading="lazy" alt="Bracciali in oro su cuscinetti di velluto in una vetrina luminosa"></a></li>
+        </ul>
+        <a href="https://www.instagram.com/gregoryjewels/" class="link-u label mt-6" data-reveal>Seguici su Instagram</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ CONTATTI / FOOTER ============ -->
+<footer id="contatti" class="bg-ivory-deep px-gutter pb-8 pt-section">
+  <div class="grid gap-y-12 md:grid-cols-12 md:gap-x-8">
+    <div class="md:col-span-7">
+      <p class="label label--gold" data-reveal>07 — Contatti</p>
+      <h2 class="mt-6 text-h2" data-reveal="mask"><span class="ml"><span style="--i:0">Parliamone</span></span><span class="ml"><span style="--i:1"><em class="ml-i">di persona.</em></span></span></h2>
+      <a href="mailto:info@gregoryjewels.com?subject=Richiesta%20di%20consulenza" class="link-u link-u--on mt-10 font-serif text-[clamp(1.5rem,3vw,2.6rem)]" data-reveal>info@gregoryjewels.com</a>
+    </div>
+    <div class="grid content-start gap-10 md:col-span-4 md:col-start-9">
+      <form id="newsletter" action="#" method="post" data-reveal>
+        <label for="nl-email" class="label label--gold">Boutique — prossimamente</label>
+        <p class="prose-it mt-3 text-sm">Lascia la tua email: ti avviseremo all’apertura e ti scriveremo, di rado, delle nuove creazioni.</p>
+        <div class="mt-4 flex items-end gap-4"><input class="field" id="nl-email" name="email" type="email" autocomplete="email" placeholder="La tua email" required><button class="label link-u shrink-0" type="submit">Iscrivimi</button></div>
+      </form>
+      <p class="label leading-loose" data-reveal>Instagram<br><a class="link-u" href="https://www.instagram.com/gregoryjewels/">@gregoryjewels</a></p>
+    </div>
+  </div>
+  <div class="mt-24 flex flex-wrap items-center justify-between gap-x-8 gap-y-4 hair-t pt-6">
+    <a href="home-1-atelier.html" class="logo-lock" aria-label="Gregory Jewels — Home"><img src="img/logo-mark.png" width="269" height="400" alt=""><span class="logo-word">GREGORY JEWELS</span></a>
+    <ul class="label flex flex-wrap gap-x-6 gap-y-2 text-ink-soft">
+      <li><a class="link-u" href="https://www.gregoryjewels.com/privacy.html">Privacy</a></li>
+      <li><a class="link-u" href="https://www.gregoryjewels.com/cookie.html">Cookie</a></li>
+      <li><a class="link-u" href="https://www.gregoryjewels.com/termini.html">Termini</a></li>
+      <li>© 2026 Gregory Jewels</li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

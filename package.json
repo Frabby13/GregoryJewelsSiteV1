@@ -1,0 +1,14 @@
+{
+  "name": "gregory-jewels-concepts",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o css/tailwind.css --minify",
+    "watch": "tailwindcss -i src/input.css -o css/tailwind.css --watch",
+    "serve": "npx --yes http-server . -p 4180 -c-1 -s",
+    "dev": "npm run build && npx --yes concurrently -k \"npm:watch\" \"npm:serve\""
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}
