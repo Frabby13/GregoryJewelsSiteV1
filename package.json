@@ -2,10 +2,11 @@
   "name": "gregory-jewels-concepts",
   "private": true,
   "scripts": {
-    "build": "tailwindcss -i src/input.css -o css/tailwind.css --minify",
+    "build": "node scripts/build-pages.mjs && tailwindcss -i src/input.css -o css/tailwind.css --minify",
     "watch": "tailwindcss -i src/input.css -o css/tailwind.css --watch",
     "serve": "npx --yes http-server . -p 4180 -c-1 -s",
-    "dev": "npm run build && npx --yes concurrently -k \"npm:watch\" \"npm:serve\""
+    "dev": "npm run build && npx --yes concurrently -k \"npm:watch\" \"npm:serve\"",
+    "pages": "node scripts/build-pages.mjs"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.0",

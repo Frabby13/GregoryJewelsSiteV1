@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @source "../*.html";
+@source "../atelier";
+@source "../cinema";
+@source "../maison";
 
 /* ==========================================================================
    Gregory Jewels — design tokens
@@ -29,6 +32,8 @@
   --color-night-text: #E9E1D1;
   --color-hair: rgb(15 15 15 / .16);
   --color-hair-night: rgb(233 225 209 / .18);
+  --color-alert: #8A2B1F;          /* form errors on ivory, AA */
+  --color-alert-night: #F0B3A5;    /* form errors on night, AA */
 
   --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --font-sans: "Montserrat", system-ui, "Segoe UI", sans-serif;
@@ -72,7 +77,8 @@
     overflow-x: clip;
   }
   img, video { display: block; max-width: 100%; }
-  h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; margin: 0; }
+  h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; margin: 0; text-wrap: balance; }
+  .on-dark, .cinema { color-scheme: dark; }
   p { margin: 0; }
   :focus-visible { outline: 2px solid var(--color-gold-deep); outline-offset: 4px; }
   .on-dark :focus-visible { outline-color: var(--color-gold-bright); }
@@ -266,6 +272,35 @@ html:not(.js) .hdr-solid::before { opacity: 1; }
   html.js [data-reveal] > img, html.js [data-reveal] > video { opacity: 1 !important; transform: none !important; clip-path: none !important; }
   .hdr-solid::before { opacity: 1; }
   video[autoplay], .curtain { display: none; }
+}
+
+/* =======================================================================
+   INTERNAL PAGES — shared pieces (long-form reading, forms)
+   ======================================================================= */
+@layer components {
+  /* article body: ~65ch measure, generous leading, Montserrat 300 like the rest of the prose */
+  .read { max-width: 38rem; font-size: 1.0625rem; line-height: 1.9; color: var(--color-ink-soft); }
+  .read > p + p { margin-top: 1.5em; }
+  .on-dark .read { color: var(--color-night-text); opacity: .9; }
+  .read-lead { font-family: var(--font-serif); font-size: clamp(1.45rem, 2.4vw, 2.2rem); line-height: 1.3; max-width: 34rem; }
+
+  /* spec list (dl): name | metal | stones */
+  .spec-row { display: grid; gap: .25rem 2rem; padding-block: 1.4rem; }
+  @media (min-width: 48rem) { .spec-row { grid-template-columns: 1.1fr 1fr 1fr; align-items: baseline; } }
+
+  /* forms */
+  textarea.field { resize: vertical; min-height: 7.5rem; line-height: 1.6; }
+  select.field { appearance: none; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: calc(100% - 12px) 55%, calc(100% - 7px) 55%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 2rem; cursor: pointer; }
+  .on-dark select.field option { background: var(--color-night); color: var(--color-night-text); }
+  .field[aria-invalid="true"], input[aria-invalid="true"] { border-bottom-color: var(--color-alert); }
+  .on-dark .field[aria-invalid="true"] { border-bottom-color: var(--color-alert-night); }
+  .field-err { color: var(--color-alert); font-size: .85rem; font-weight: 400; line-height: 1.5; }
+  .on-dark .field-err, .on-dark .form-summary { color: var(--color-alert-night); }
+  .form-summary { border: 1px solid currentColor; padding: 1rem 1.25rem; color: var(--color-alert); }
+  .form-summary a { text-decoration: underline; text-underline-offset: 3px; }
+  .form-summary:focus-visible { outline-offset: 2px; }
+  .form-status { font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.4; min-height: 1.4em; }
+  button.cta { background: transparent; font-family: inherit; cursor: pointer; }
 }
 
 /* =======================================================================

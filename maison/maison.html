@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Maison — Gregory Jewels</title>
+<meta name="description" content="Gregory Jewels è un atelier italiano: un gioiello alla volta, dal colloquio al bozzetto fino alla pietra incastonata.">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/cormorant-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../fonts/montserrat-300.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="../css/tailwind.css">
+<script src="../js/reveal.js"></script>
+</head>
+<body class="maison">
+
+<a href="#contenuto" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-ink focus:text-ivory focus:px-4 focus:py-2">Vai al contenuto</a>
+
+<header class="site-header sticky top-0 border-b border-hair bg-ivory">
+  <div class="grid grid-cols-[1fr_auto] items-center px-gutter py-3 lg:grid-cols-[1fr_auto_1fr]">
+    <nav class="hidden items-center gap-6 lg:flex xl:gap-8" aria-label="Principale">
+      <a class="nav-link link-u link-u--on" href="maison.html" aria-current="page">Maison</a>
+      <a class="nav-link link-u" href="collezioni.html">Collezioni</a>
+      <a class="nav-link link-u" href="../home-3-maison.html#su-misura">Su Misura</a>
+    </nav>
+    <a href="../home-3-maison.html" class="logo-lock enter-fade lg:justify-self-center" style="--d:0" aria-label="Gregory Jewels — Home">
+      <img src="../img/logo-mark.png" width="269" height="400" alt="">
+      <span class="logo-word">GREGORY JEWELS</span>
+    </a>
+    <nav class="hidden items-center justify-end gap-6 lg:flex xl:gap-8" aria-label="Secondaria">
+      <a class="nav-link link-u" href="mestiere.html">Atelier</a>
+      <a class="nav-link link-u" href="journal.html">Journal</a>
+      <a class="nav-link link-u" href="contatti.html">Contatti</a>
+      <a class="nav-link link-u soon" href="../home-3-maison.html#newsletter" aria-label="Boutique, prossimamente">Boutique<small>prossimamente</small></a>
+    </nav>
+    <button class="burger label justify-self-end lg:hidden" popovertarget="menu" aria-label="Apri il menu">Menu<span class="burger__bars" aria-hidden="true"></span></button>
+  </div>
+</header>
+
+<nav id="menu" popover class="menu on-dark" aria-label="Menu principale">
+  <div class="flex h-full flex-col overflow-y-auto px-gutter py-3">
+    <div class="flex items-center justify-between">
+      <a class="logo-lock" href="../home-3-maison.html" aria-label="Gregory Jewels — Home"><img src="../img/logo-mark-light.png" width="269" height="400" alt=""><span class="logo-word">GREGORY JEWELS</span></a>
+      <button class="burger label" popovertarget="menu" popovertargetaction="hide" aria-label="Chiudi il menu">Chiudi</button>
+    </div>
+    <ul class="my-auto py-8 font-serif text-[clamp(2.4rem,11vw,4.2rem)] leading-[1.15]">
+      <li class="menu__item" style="--i:0"><a href="maison.html" aria-current="page">Maison</a></li>
+      <li class="menu__item" style="--i:1"><a href="collezioni.html">Collezioni</a></li>
+      <li class="menu__item" style="--i:2"><a href="../home-3-maison.html#su-misura">Su Misura</a></li>
+      <li class="menu__item" style="--i:3"><a href="mestiere.html">Atelier</a></li>
+      <li class="menu__item" style="--i:4"><a href="journal.html">Journal</a></li>
+      <li class="menu__item" style="--i:5"><a href="contatti.html">Contatti</a></li>
+      <li class="menu__item opacity-60" style="--i:6"><a class="num" href="../home-3-maison.html#newsletter">Boutique <span class="label not-italic">prossimamente</span></a></li>
+    </ul>
+    <p class="label label--gold pb-6">info@gregoryjewels.com · @gregoryjewels</p>
+  </div>
+</nav>
+
+<main id="contenuto">
+  <section class="grid md:min-h-[calc(78svh-4.5rem)] md:grid-cols-2" aria-labelledby="h-page">
+    <div class="flex flex-col justify-between gap-12 px-gutter pb-12 pt-12 md:pb-14 md:pt-16 ">
+      <p class="label label--gold enter" style="--d:.1">La maison</p>
+      <div>
+        <h1 id="h-page" class="text-[clamp(2.8rem,6.4vw,6.8rem)] leading-[.96] tracking-[-.015em]">
+          <span class="ml enter-line"><span style="--d:0.25;--i:0">Un mestiere</span></span>
+          <span class="ml enter-line"><span style="--d:0.25;--i:1"><em class="ml-i">che si impara con le mani.</em></span></span>
+        </h1>
+        <p class="prose-it mt-8 enter" style="--d:.7">Gregory Jewels nasce dall’idea che l’alta gioielleria sia prima di tutto un lavoro di bottega: disegno, metallo, fuoco, pietra. Ogni passaggio resta in mano a chi lo conosce.</p>
+        
+      </div>
+    </div>
+    <div class="frame relative aspect-[4/5] md:aspect-auto md:h-full ">
+      <img class="settle-in" src="../img/hero-chi-sono.jpg" width="1920" height="1278" alt="Le mani di un gioielliere, con la lente sul volto, incastonano una pietra su un anello d’oro" fetchpriority="high" style="object-position:60% 50%;--d:.3">
+      <span class="curtain curtain--gold" aria-hidden="true"></span>
+      <span class="curtain" aria-hidden="true"></span>
+    </div>
+  </section>
+
+  <section class="bg-ivory-deep px-gutter py-section" aria-labelledby="h-maison">
+    <div class="grid items-start gap-y-14 md:grid-cols-12 md:gap-x-8">
+      <div class="md:col-span-7">
+        <p class="label label--gold" data-reveal>Maison</p>
+        <h2 id="h-maison" class="mt-8 text-h2" data-reveal="mask"><span class="ml"><span style="--i:0">Un gioiello alla volta,</span></span>
+          <span class="ml"><span style="--i:1"><em class="ml-i">nel tempo che serve.</em></span></span></h2>
+        <div class="mt-12 grid gap-8 md:grid-cols-2" data-reveal="stagger">
+          <p class="prose-it" style="--i:0">Gregory Jewels è un atelier italiano. Ogni pezzo nasce da un colloquio, diventa un bozzetto, passa per le mani di chi lo costruisce e non viene mai replicato.</p>
+          <p class="prose-it" style="--i:1">Non produciamo serie. Costruiamo un pezzo alla volta e lo consegniamo insieme al bozzetto da cui è partito.</p>
+        </div>
+      </div>
+      <figure class="md:col-span-4 md:col-start-9 md:mt-24">
+        <div class="frame aspect-[4/5]" data-reveal="image"><img src="../img/storia-mani-artigiane.jpg" width="1200" height="800" alt="Mani che infilano perle d’oro su un telaietto, accanto a una pinza e a un sacchetto di velluto nero" loading="lazy"></div>
+        <figcaption class="label mt-3 text-ink-soft">Il banco, di mattina</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="px-gutter py-section" aria-labelledby="h-valori">
+    <h2 id="h-valori" class="sr-only">Le nostre promesse</h2>
+    <p class="max-w-[22ch] font-serif text-[clamp(2.2rem,5.6vw,5.4rem)] leading-[1.04] md:max-w-[26ch]" data-reveal>
+      Lavoriamo solo con <em class="ml-i text-gold-deep">pietre rare</em>, scelte una a una; con <em class="ml-i text-gold-deep">diamanti etici</em>, tracciabili fino all’origine; e con una regola sola: ogni gioiello è <em class="ml-i text-gold-deep">unico</em>.
+    </p>
+    <ul class="mt-16 grid gap-6 hair-t pt-6 md:grid-cols-3 md:gap-x-8" data-reveal="stagger">
+      <li style="--i:0"><p class="label label--gold">Pietre rare</p><p class="prose-it mt-3 text-sm">Cerchiamo gemme con carattere, non solo con certificato: colore vivo, taglio onesto, origine dichiarata.</p></li>
+      <li style="--i:1"><p class="label label--gold">Diamanti etici</p><p class="prose-it mt-3 text-sm">Solo diamanti tracciabili, con provenienza documentata e nessun legame con zone di conflitto.</p></li>
+      <li style="--i:2"><p class="label label--gold">Esemplare unico</p><p class="prose-it mt-3 text-sm">Il disegno non viene replicato. Se un pezzo è tuo, resta soltanto tuo.</p></li>
+    </ul>
+  </section>
+
+  <section class="bg-ink px-gutter py-section text-ivory on-dark" aria-labelledby="h-closing">
+    <div class="grid gap-y-10 md:grid-cols-12 md:gap-x-8">
+      <div class="md:col-span-7">
+        <p class="label label--gold" data-reveal>Su misura</p>
+        <h2 id="h-closing" class="mt-6 text-h2" data-reveal="mask"><span class="ml"><span style="--i:0">Il gioiello che</span></span>
+          <span class="ml"><span style="--i:1"><em class="ml-i text-gold">solo tu puoi chiedere.</em></span></span></h2>
+      </div>
+      <div class="grid content-end gap-8 md:col-span-4 md:col-start-9">
+        <p class="prose-it" data-reveal>Un colloquio in atelier o in videochiamata, senza impegno. Poi il bozzetto, le pietre, la consegna.</p>
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-4" data-reveal>
+          <a href="contatti.html" class="cta">Scrivici <span class="cta__arrow" aria-hidden="true"></span></a>
+          <a href="../home-3-maison.html#su-misura" class="link-u label">Come funziona</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-ink text-ivory px-gutter pb-8 pt-section on-dark">
+  <div class="grid gap-y-12 md:grid-cols-12 md:gap-x-8">
+    <div class="md:col-span-6">
+      <p class="label label--gold">Contatti</p>
+      <a href="mailto:info@gregoryjewels.com" class="link-u link-u--on mt-6 font-serif text-[clamp(1.5rem,3vw,2.6rem)]">info@gregoryjewels.com</a>
+      <p class="label mt-8 leading-loose">Instagram<br><a class="link-u" href="https://www.instagram.com/gregoryjewels/">@gregoryjewels</a></p>
+    </div>
+    <nav class="md:col-span-4 md:col-start-9" aria-label="Piè di pagina">
+      <ul class="grid gap-1 font-serif text-2xl leading-tight">
+        <li><a class="link-u link-u--on" href="maison.html" aria-current="page">Maison</a></li>
+        <li><a class="link-u" href="collezioni.html">Collezioni</a></li>
+        <li><a class="link-u" href="../home-3-maison.html#su-misura">Su Misura</a></li>
+        <li><a class="link-u" href="mestiere.html">Atelier</a></li>
+        <li><a class="link-u" href="journal.html">Journal</a></li>
+        <li><a class="link-u" href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="hair-t mt-24 flex flex-wrap items-center justify-between gap-x-8 gap-y-4 pt-6">
+    <a href="../home-3-maison.html" class="logo-lock" aria-label="Gregory Jewels — Home"><img src="../img/logo-mark-light.png" width="269" height="400" alt=""><span class="logo-word">GREGORY JEWELS</span></a>
+    <ul class="label flex flex-wrap gap-x-6 gap-y-2 opacity-80">
+      <li><a class="link-u" href="https://www.gregoryjewels.com/privacy.html">Privacy</a></li>
+      <li><a class="link-u" href="https://www.gregoryjewels.com/cookie.html">Cookie</a></li>
+      <li><a class="link-u" href="https://www.gregoryjewels.com/termini.html">Termini</a></li>
+      <li>© 2026 Gregory Jewels</li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
