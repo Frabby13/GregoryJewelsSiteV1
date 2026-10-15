@@ -1,4 +1,4 @@
-// Generates the 21 internal pages (7 types x 3 concepts) from shared content + per-concept templates.
+// Generates the internal pages (10 types incl. shop list, 8 product pages and cart, x 3 concepts) from shared content + per-concept templates.
 // Zero dependencies:  node scripts/build-pages.mjs
 const mods = ['atelier', 'cinema', 'maison'];
 let total = 0;

@@ -135,3 +135,19 @@ export const detailImages = [
   { img: 'img/lab-banco-strumenti.jpg', pos: '50% 50%', cap: 'Filo, pinze, componenti in oro', alt: 'Bobina di filo, pinze e piccole componenti in oro sul banco di lavoro' },
   { img: 'img/filosofia-orecchini-oro.jpg', pos: '50% 50%', cap: 'L’oro intrecciato dei creoli', alt: 'Creoli in oro giallo intrecciato appoggiati a un ciottolo bianco, nella luce radente del mattino' },
 ];
+
+// Shop layer. PLACEHOLDER: prices and descriptions are provisional demo values (not supplied by the atelier).
+// Every piece is a unique item, so the cart holds each at most once. Bespoke pieces have no price: "su richiesta".
+export const shop = {
+  'creoli-torchon': { price: 2400, desc: 'Creoli in oro giallo 18 kt intrecciato. Un gesto semplice: è la torsione del filo a prendere la luce.' },
+  'lobo-lumiere': { price: 3800, desc: 'Orecchini a lobo in oro bianco con un diamante taglio brillante al centro e un halo di brillanti.' },
+  'notte-blu': { price: 2950, desc: 'Orecchini pendenti: una pietra blu a goccia che scende da baguette di cristallo.' },
+  'solitario-aurora': { price: 6900, desc: 'Solitario con diamante taglio brillante, in castone di oro rosa 18 kt e platino, con pavé sulla fascia.' },
+  'anello-rubino': { price: null, desc: 'Anello su misura in oro 22 kt con smalti rossi e rubini cabochon. Nasce da un bozzetto a colori e si ordina su richiesta.' },
+  'luna-crescente': { price: 4200, desc: 'Collana a più fili in oro giallo 18 kt, con una pietra di colore sfaccettata e una mezzaluna di brillanti.' },
+  'parure-giardino': { price: null, desc: 'Parure in oro 22 kt con smalti, smeraldi e peridoti, nata da un bozzetto a matita. Si ordina su richiesta.' },
+  'bracciale-paisley': { price: 8500, desc: 'Bracciale rigido in oro giallo e bianco: il disegno paisley è la decorazione, il pavé di diamanti la rende luminosa.' },
+};
+export const eur = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €';
+export const priceOf = (slug) => (shop[slug].price == null ? 'Su richiesta' : eur(shop[slug].price));
+export const collectionOf = (slug) => collections.find((c) => c.pieces.includes(slug));

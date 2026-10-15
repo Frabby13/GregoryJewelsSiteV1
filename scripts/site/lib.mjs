@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { EMAIL, INSTAGRAM, PRIVACY, pieces } from './data.mjs';
+import { EMAIL, INSTAGRAM, PRIVACY, pieces, shop, priceOf, collections, collectionOf } from './data.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const P = path.posix;
@@ -24,6 +24,9 @@ export function routes(c) {
     journal: `${d}/journal.html`,
     article: (s) => `${d}/journal/${s}.html`,
     contact: `${d}/contatti.html`,
+    shop: `${d}/boutique.html`,
+    product: (s) => `${d}/boutique/${s}.html`,
+    cart: `${d}/carrello.html`,
   };
 }
 
@@ -80,7 +83,8 @@ export function head(x, { title, desc, theme, scripts = [] }) {
 <link rel="preload" href="${u('fonts/cormorant-400.ttf')}" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="${u('fonts/montserrat-300.ttf')}" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="${u('css/tailwind.css')}">
-<script src="${u('js/reveal.js')}"></script>${scripts.map((s) => `\n<script src="${u(s)}" defer></script>`).join('')}
+<script src="${u('js/reveal.js')}"></script>
+<script src="${u('js/shop.js')}" defer></script>${scripts.map((s) => `\n<script src="${u(s)}" defer></script>`).join('')}
 </head>`;
 }
 
@@ -96,13 +100,14 @@ export function navItems(x) {
     { key: 'contatti', label: 'Contatti', href: u(R.contact) },
   ];
 }
-export const boutique = (x) => ({ href: x.u(x.R.home + '#newsletter') });
 
 export const aria = (active, key) => (active === key ? ' aria-current="page"' : '');
 export const navLink = (it, active) =>
   `<a class="nav-link link-u${active === it.key ? ' link-u--on' : ''}" href="${it.href}"${aria(active, it.key)}>${it.label}</a>`;
-export const boutiqueLink = (x) =>
-  `<a class="nav-link link-u soon" href="${boutique(x).href}" aria-label="Boutique, prossimamente">Boutique<small>prossimamente</small></a>`;
+const cartCount = '<span class="cart-count" data-cart-count hidden></span>';
+export const boutiqueLink = (x, active) =>
+  `<a class="nav-link link-u${active === 'boutique' ? ' link-u--on' : ''}" href="${x.u(x.R.shop)}"${aria(active, 'boutique')}>Boutique</a>
+      <a class="nav-link link-u${active === 'carrello' ? ' link-u--on' : ''}" href="${x.u(x.R.cart)}"${aria(active, 'carrello')} data-cart-link>Carrello${cartCount}</a>`;
 
 export function menu(x, active, { dark = true } = {}) {
   const items = navItems(x);
@@ -115,7 +120,8 @@ export function menu(x, active, { dark = true } = {}) {
     </div>
     <ul class="my-auto py-8 font-serif text-[clamp(2.4rem,11vw,4.2rem)] leading-[1.15]">
 ${items.map((it, i) => `      <li class="menu__item" style="--i:${i}"><a href="${it.href}"${aria(active, it.key)}>${it.label}</a></li>`).join('\n')}
-      <li class="menu__item opacity-60" style="--i:${items.length}"><a class="num" href="${boutique(x).href}">Boutique <span class="label not-italic">prossimamente</span></a></li>
+      <li class="menu__item" style="--i:${items.length}"><a href="${x.u(x.R.shop)}"${aria(active, 'boutique')}>Boutique</a></li>
+      <li class="menu__item" style="--i:${items.length + 1}"><a href="${x.u(x.R.cart)}"${aria(active, 'carrello')} data-cart-link>Carrello${cartCount}</a></li>
     </ul>
     <p class="label label--gold pb-6">${EMAIL} · @gregoryjewels</p>
   </div>

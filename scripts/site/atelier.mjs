@@ -21,7 +21,7 @@ ${skip('focus:bg-ink focus:text-ivory')}
     </a>
     <nav class="hidden items-center gap-7 lg:flex xl:gap-9" aria-label="Principale">
       ${items.map((it) => navLink(it, active)).join('\n      ')}
-      ${boutiqueLink(x)}
+      ${boutiqueLink(x, active)}
     </nav>
     <button class="burger label lg:hidden" popovertarget="menu" aria-label="Apri il menu">Menu<span class="burger__bars" aria-hidden="true"></span></button>
   </div>
@@ -374,8 +374,104 @@ function contactPage() {
   return [from, shell(x, 'contatti', { title: 'Contatti', desc: 'Contatta Gregory Jewels: info@gregoryjewels.com. Ti riceviamo in atelier o in videochiamata.' }, body, { scripts: ['js/contact.js'] })];
 }
 
+// ---------------------------------------------------------------- Boutique (shop)
+import { buyBlock, specList, filterBar, cartSection, shopNote } from './shop-lib.mjs';
+import { shop, priceOf, collectionOf } from './data.mjs';
+
+const shopCard = (x, slug, cls = '') => {
+  const p = pieces[slug];
+  return `<li class="${cls}" data-cat="${collectionOf(slug).slug}">
+        <a href="${x.u(x.R.product(slug))}" class="piece group block">
+          <div class="frame aspect-[4/5]">${x.img(p.img, p.alt, { pos: p.pos })}</div>
+          <div class="piece__meta mt-5">
+            ${p.bespoke ? '<span class="label label--gold">Su misura</span>' : `<span class="label text-ink-soft">${collectionOf(slug).title}</span>`}
+            <h3 class="piece__name"><span class="link-u">${p.name}</span></h3>
+            <p class="piece__spec">${pieceSpec(p)}</p>
+            <p class="price mt-2 text-[1.35rem]">${priceOf(slug)}</p>
+          </div>
+        </a>
+      </li>`;
+};
+
+function shopPage() {
+  const from = `${KEY}/boutique.html`;
+  const x = makeCtx(KEY, from);
+  const { R } = x;
+  const stagger = ['', 'md:mt-20', 'md:mt-40'];
+  const cards = Object.keys(pieces).map((s, n) => shopCard(x, s, stagger[n % 3])).join('\n      ');
+  const body = `${pageHead('Boutique', ['Pezzi unici,', em('uno alla volta.')], 'Otto gioielli, ciascuno in un solo esemplare. Scegli quello che ti parla e aggiungilo al carrello: l’atelier ti ricontatta per confermarlo.')}
+
+  <section class="bg-ivory-deep px-gutter py-section" aria-labelledby="h-elenco">
+    <div class="flex flex-wrap items-end justify-between gap-6 hair-b pb-8">
+      <h2 id="h-elenco" class="text-h2" data-reveal="mask"><span class="ml"><span>Tutti i ${em('pezzi')}</span></span></h2>
+      ${filterBar()}
+    </div>
+    <ul class="mt-16 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+      ${cards}
+    </ul>
+    <p class="prose-it mt-20 text-sm">${shopNote}</p>
+  </section>
+
+${closing(x, { kicker: 'Su misura', lines: ['Cerchi qualcosa', em('di diverso?')], text: 'Un gioiello può nascere da zero: raccontaci l’idea o la pietra da reinterpretare.', ctaLabel: 'Prenota una consulenza', to: R.contact })}`;
+  return [from, shell(x, 'boutique', { title: 'Boutique', desc: 'La boutique Gregory Jewels: otto gioielli, ciascuno in un solo esemplare. Scegli un pezzo e aggiungilo al carrello.' }, body)];
+}
+
+function productPage(slug) {
+  const from = `${KEY}/boutique/${slug}.html`;
+  const x = makeCtx(KEY, from);
+  const { u, R, img } = x;
+  const p = pieces[slug];
+  const c = collectionOf(slug);
+  const rel = Object.keys(pieces).filter((s) => s !== slug && collectionOf(s).slug !== c.slug).slice(0, 3);
+  const body = `  <section class="px-gutter pb-section pt-8 md:pt-12" aria-labelledby="h-page">
+    <p class="enter"><a class="label link-u" href="${u(R.shop)}">Boutique</a> <span class="label text-ink-soft" aria-hidden="true">/</span> <a class="label link-u" href="${u(R.collection(c.slug))}">${c.title}</a></p>
+    <div class="mt-8 grid gap-x-8 gap-y-14 md:grid-cols-12">
+      <div class="grid content-start gap-6 md:col-span-7">
+        <div class="frame enter-unveil aspect-[4/5]" style="--d:0">${img(p.img, p.alt, { cls: 'kenburns', pos: p.pos, eager: true })}</div>
+        <figure>
+          <div class="frame aspect-[3/2]" data-reveal="image">${img(c.bench.img, c.bench.alt, { pos: c.bench.pos })}</div>
+          <figcaption class="label mt-3 text-ink-soft">${c.bench.cap}</figcaption>
+        </figure>
+      </div>
+      <div class="md:col-span-4 md:col-start-9">
+        <div class="md:sticky md:top-28">
+          ${p.bespoke ? '<p class="label label--gold enter" style="--d:.1">Su misura</p>' : '<p class="label label--gold enter" style="--d:.1">Esemplare unico</p>'}
+          <h1 id="h-page" class="mt-4 text-[clamp(2.6rem,4.6vw,4.6rem)] leading-[1] tracking-[-.015em]">
+            ${maskLines([p.name])}
+          </h1>
+          <p class="prose-it mt-3 enter" style="--d:.5">${pieceSpec(p)}</p>
+          <p class="lead mt-8 enter" style="--d:.6">${shop[slug].desc}</p>
+          <div class="mt-10 enter" style="--d:.7">${buyBlock(x, slug)}</div>
+          <div class="mt-12">${specList(slug)}</div>
+          <p class="prose-it mt-6 text-sm">${shopNote}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-ivory-deep px-gutter py-section" aria-labelledby="h-altri">
+    <div class="flex flex-wrap items-end justify-between gap-6 hair-b pb-8">
+      <h2 id="h-altri" class="text-h2" data-reveal="mask"><span class="ml"><span>Altri ${em('pezzi')}</span></span></h2>
+      <a class="label link-u" href="${u(R.shop)}">Tutta la boutique</a>
+    </div>
+    <ul class="mt-16 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+      ${rel.map((s) => shopCard(x, s)).join('\n      ')}
+    </ul>
+  </section>`;
+  return [from, shell(x, 'boutique', { title: p.name + ' — Boutique', desc: shop[slug].desc }, body)];
+}
+
+function cartPage() {
+  const from = `${KEY}/carrello.html`;
+  const x = makeCtx(KEY, from);
+  const body = `${pageHead('Carrello', ['Il tuo', em('carrello.')], 'Ogni pezzo è un esemplare unico, quindi qui compare una volta sola. Quando sei pronto, chiedi l’ordine: ti risponde l’atelier.')}
+
+${cartSection(x, { wrap: 'bg-ivory-deep px-gutter py-section' })}`;
+  return [from, shell(x, 'carrello', { title: 'Carrello', desc: 'Il tuo carrello Gregory Jewels.' }, body)];
+}
+
 export function build() {
-  const out = [collectionsPage(), ...collections.map(collectionPage), maisonPage(), mestierePage(), journalPage(), ...articles.map(articlePage), contactPage()];
+  const out = [shopPage(), ...Object.keys(pieces).map(productPage), cartPage(), collectionsPage(), ...collections.map(collectionPage), maisonPage(), mestierePage(), journalPage(), ...articles.map(articlePage), contactPage()];
   out.forEach(([p, h]) => write(p, h));
   return out.map(([p]) => p);
 }

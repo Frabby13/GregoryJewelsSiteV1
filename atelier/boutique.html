@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boutique — Gregory Jewels</title>
+<meta name="description" content="La boutique Gregory Jewels: otto gioielli, ciascuno in un solo esemplare. Scegli un pezzo e aggiungilo al carrello.">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/cormorant-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../fonts/montserrat-300.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="../css/tailwind.css">
+<script src="../js/reveal.js"></script>
+<script src="../js/shop.js" defer></script>
+</head>
+<body class="atelier">
+
+<a href="#contenuto" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-ink focus:text-ivory focus:px-4 focus:py-2">Vai al contenuto</a>
+
+<header class="site-header sticky top-0 border-b border-hair bg-ivory">
+  <div class="flex items-center justify-between px-gutter py-3">
+    <a href="../home-1-atelier.html" class="logo-lock enter-fade" style="--d:0" aria-label="Gregory Jewels — Home">
+      <img src="../img/logo-mark.png" width="269" height="400" alt="">
+      <span class="logo-word">GREGORY JEWELS</span>
+    </a>
+    <nav class="hidden items-center gap-7 lg:flex xl:gap-9" aria-label="Principale">
+      <a class="nav-link link-u" href="maison.html">Maison</a>
+      <a class="nav-link link-u" href="collezioni.html">Collezioni</a>
+      <a class="nav-link link-u" href="../home-1-atelier.html#su-misura">Su Misura</a>
+      <a class="nav-link link-u" href="mestiere.html">Atelier</a>
+      <a class="nav-link link-u" href="journal.html">Journal</a>
+      <a class="nav-link link-u" href="contatti.html">Contatti</a>
+      <a class="nav-link link-u link-u--on" href="boutique.html" aria-current="page">Boutique</a>
+      <a class="nav-link link-u" href="carrello.html" data-cart-link>Carrello<span class="cart-count" data-cart-count hidden></span></a>
+    </nav>
+    <button class="burger label lg:hidden" popovertarget="menu" aria-label="Apri il menu">Menu<span class="burger__bars" aria-hidden="true"></span></button>
+  </div>
+</header>
+
+<nav id="menu" popover class="menu on-dark" aria-label="Menu principale">
+  <div class="flex h-full flex-col overflow-y-auto px-gutter py-3">
+    <div class="flex items-center justify-between">
+      <a class="logo-lock" href="../home-1-atelier.html" aria-label="Gregory Jewels — Home"><img src="../img/logo-mark-light.png" width="269" height="400" alt=""><span class="logo-word">GREGORY JEWELS</span></a>
+      <button class="burger label" popovertarget="menu" popovertargetaction="hide" aria-label="Chiudi il menu">Chiudi</button>
+    </div>
+    <ul class="my-auto py-8 font-serif text-[clamp(2.4rem,11vw,4.2rem)] leading-[1.15]">
+      <li class="menu__item" style="--i:0"><a href="maison.html">Maison</a></li>
+      <li class="menu__item" style="--i:1"><a href="collezioni.html">Collezioni</a></li>
+      <li class="menu__item" style="--i:2"><a href="../home-1-atelier.html#su-misura">Su Misura</a></li>
+      <li class="menu__item" style="--i:3"><a href="mestiere.html">Atelier</a></li>
+      <li class="menu__item" style="--i:4"><a href="journal.html">Journal</a></li>
+      <li class="menu__item" style="--i:5"><a href="contatti.html">Contatti</a></li>
+      <li class="menu__item" style="--i:6"><a href="boutique.html" aria-current="page">Boutique</a></li>
+      <li class="menu__item" style="--i:7"><a href="carrello.html" data-cart-link>Carrello<span class="cart-count" data-cart-count hidden></span></a></li>
+    </ul>
+    <p class="label label--gold pb-6">info@gregoryjewels.com · @gregoryjewels</p>
+  </div>
+</nav>
+
+<main id="contenuto">
+  <section class="px-gutter pb-16 pt-12 md:pb-24 md:pt-20" aria-labelledby="h-page">
+    <div class="grid gap-x-8 gap-y-10 md:grid-cols-12">
+      <p class="label label--gold enter md:col-span-3" style="--d:.05">Boutique</p>
+      <h1 id="h-page" class="text-[clamp(2.9rem,7.2vw,7.6rem)] leading-[.97] tracking-[-.015em] md:col-span-9">
+          <span class="ml enter-line"><span style="--d:0.15;--i:0">Pezzi unici,</span></span>
+          <span class="ml enter-line"><span style="--d:0.15;--i:1"><em class="ml-i">uno alla volta.</em></span></span>
+      </h1>
+      <p class="lead enter max-w-[34rem] md:col-span-5 md:col-start-4" style="--d:.6">Otto gioielli, ciascuno in un solo esemplare. Scegli quello che ti parla e aggiungilo al carrello: l’atelier ti ricontatta per confermarlo.</p>
+    </div>
+  </section>
+
+  <section class="bg-ivory-deep px-gutter py-section" aria-labelledby="h-elenco">
+    <div class="flex flex-wrap items-end justify-between gap-6 hair-b pb-8">
+      <h2 id="h-elenco" class="text-h2" data-reveal="mask"><span class="ml"><span>Tutti i <em class="ml-i">pezzi</em></span></span></h2>
+      <div class="flex flex-wrap gap-3 " role="group" aria-label="Filtra per collezione">
+      <button type="button" class="chip label" data-filter="tutti" aria-pressed="true">Tutti</button>
+      <button type="button" class="chip label" data-filter="orecchini" aria-pressed="false">Orecchini</button>
+      <button type="button" class="chip label" data-filter="anelli" aria-pressed="false">Anelli</button>
+      <button type="button" class="chip label" data-filter="collane-e-parure" aria-pressed="false">Collane e parure</button>
+      <button type="button" class="chip label" data-filter="bracciali" aria-pressed="false">Bracciali</button>
+    </div>
+    <p class="sr-only" role="status" aria-live="polite" data-filter-status></p>
+    </div>
+    <ul class="mt-16 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+      <li class="" data-cat="orecchini">
+        <a href="boutique/creoli-torchon.html" class="piece group block">
+          <div class="frame aspect-[4/5]"><img src="../img/filosofia-orecchini-oro.jpg" width="1200" height="1800" alt="Creoli in oro giallo intrecciato appoggiati a un ciottolo bianco, nella luce radente del mattino" loading="lazy"></div>
+          <div class="piece__meta mt-5">
+            <span class="label text-ink-soft">Orecchini</span>
+            <h3 class="piece__name"><span class="link-u">Creoli Torchon</span></h3>
+            <p class="piece__spec">Oro giallo 18 kt</p>
+            <p class="price mt-2 text-[1.35rem]">2.400 €</p>
+          </div>
+        </a>
+      </li>
+      <li class="md:mt-20" data-cat="orecchini">
+        <a href="boutique/lobo-lumiere.html" class="piece group block">
+          <div class="frame aspect-[4/5]"><img src="../img/lab-incastonatura.jpg" width="900" height="582" alt="Coppia di orecchini a lobo in oro bianco con diamante centrale e halo di brillanti" loading="lazy" style="object-position:50% 35%"></div>
+          <div class="piece__meta mt-5">
+            <span class="label text-ink-soft">Orecchini</span>
+            <h3 class="piece__name"><span class="link-u">Lobo Lumière</span></h3>
+            <p class="piece__spec">Oro bianco · Diamanti taglio brillante, halo</p>
+            <p class="price mt-2 text-[1.35rem]">3.800 €</p>
+          </div>
+        </a>
+      </li>
+      <li class="md:mt-40" data-cat="orecchini">
+        <a href="boutique/notte-blu.html" class="piece group block">
+          <div class="frame aspect-[4/5]"><img src="../img/gallery-orecchini-pendenti.jpg" width="900" height="1350" alt="Orecchini pendenti con pietra blu a goccia e baguette di cristallo su foglia verde" loading="lazy" style="object-position:50% 45%"></div>
+          <div class="piece__meta mt-5">
+            <span class="label text-ink-soft">Orecchini</span>
+            <h3 class="piece__name"><span class="link-u">Notte Blu</span></h3>
+            <p class="piece__spec">Pendenti · Pietra blu a goccia, baguette</p>
+            <p class="price mt-2 text-[1.35rem]">2.950 €</p>
+          </div>
+        </a>
+      </li>
+      <li class="" data-cat="anelli">
+        <a href="boutique/solitario-aurora.html" class="piece group block">
+          <div class="frame aspect-[4/5]"><img src="../img/gallery-anello-solitario.jpg" width="900" height="600" alt="Anello solitario con diamante taglio brillante in castone di oro rosa e pavé, su base nera" loading="lazy"></div>
+          <div class="piece__meta mt-5">
+            <span class="label text-ink-soft">Anelli</span>
+            <h3 class="piece__name"><span class="link-u">Solitario Aurora</span></h3>
+            <p class="piece__spec">Platino e oro rosa 18 kt · Diamante taglio brillante, pavé</p>
+            <p class="price mt-2 text-[1.35rem]">6.900 €</p>
+          </div>
+        </a>
+      </li>
+      <li class="md:mt-20" data-cat="anelli">
+        <a href="boutique/anello-rubino.html" class="piece group block">
+          <div class="frame aspect-[4/5]"><img src="../img/bespoke-bozzetto-rubini.jpg" width="900" height="1349" alt="Bozzetto colorato di una parure di rubini con un anello in oro e smalti rossi, lente e pinze" loading="lazy" style="object-position:50% 52%"></div>
+          <div class="piece__meta mt-5">
+            <span class="label label--gold">Su misura</span>
+            <h3 class="piece__name"><span class="link-u">Anello Rubino</span></h3>
+            <p class="piece__spec">Oro 22 kt, smalti rossi · Rubini cabochon</p>
+            <p class="price mt-2 text-[1.35rem]">Su richiesta</p>
+          </div>
+        </a>
+      </li>
+      <li class="md:mt-40" data-cat="collane-e-parure">
+        <a href="boutique/luna-crescente.html" class="piece group block">
+          <div class="frame aspect-[4/5]"><img src="../img/gallery-collana-pietra-colore.jpg" width="900" height="1350" alt="Collana a più fili in oro con pietra blu sfaccettata e mezzaluna di brillanti" loading="lazy" style="object-position:50% 32%"></div>
+          <div class="piece__meta mt-5">
+            <span class="label text-ink-soft">Collane e parure</span>
+            <h3 class="piece__name"><span class="link-u">Luna Crescente</span></h3>
+            <p class="piece__spec">Oro giallo 18 kt · Pietra di colore, brillanti</p>
+            <p class="price mt-2 text-[1.35rem]">4.200 €</p>
+          </div>
+        </a>
+      </li>
+      <li class="" data-cat="collane-e-parure">
+        <a href="boutique/parure-giardino.html" class="piece group block">
+          <div class="frame aspect-[4/5]"><img src="../img/bespoke-bozzetto-collier.jpg" width="1200" height="1798" alt="Parure in oro con smalti e smeraldi accanto al bozzetto a matita da cui è nata" loading="lazy" style="object-position:50% 55%"></div>
+          <div class="piece__meta mt-5">
+            <span class="label label--gold">Su misura</span>
+            <h3 class="piece__name"><span class="link-u">Parure Giardino</span></h3>
+            <p class="piece__spec">Oro 22 kt, smalti · Smeraldi, peridoti</p>
+            <p class="price mt-2 text-[1.35rem]">Su richiesta</p>
+          </div>
+        </a>
+      </li>
+      <li class="md:mt-20" data-cat="bracciali">
+        <a href="boutique/bracciale-paisley.html" class="piece group block">
+          <div class="frame aspect-[4/5]"><img src="../img/gallery-bracciale-oro.jpg" width="900" height="600" alt="Bracciale rigido in oro con motivi paisley tempestati di piccoli diamanti, su fondo rosato" loading="lazy"></div>
+          <div class="piece__meta mt-5">
+            <span class="label text-ink-soft">Bracciali</span>
+            <h3 class="piece__name"><span class="link-u">Bracciale Paisley</span></h3>
+            <p class="piece__spec">Oro giallo e bianco · Pavé di diamanti</p>
+            <p class="price mt-2 text-[1.35rem]">8.500 €</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <p class="prose-it mt-20 text-sm">Prezzi e condizioni di spedizione sono segnaposto dimostrativi, in attesa dei dati dell’atelier.</p>
+  </section>
+
+  <section class="bg-ivory-deep px-gutter py-section" aria-labelledby="h-closing">
+    <div class="grid gap-y-10 md:grid-cols-12 md:gap-x-8">
+      <p class="label label--gold md:col-span-3" data-reveal>Su misura</p>
+      <div class="md:col-span-9">
+        <h2 id="h-closing" class="text-h2" data-reveal="mask"><span class="ml"><span style="--i:0">Cerchi qualcosa</span></span>
+          <span class="ml"><span style="--i:1"><em class="ml-i">di diverso?</em></span></span></h2>
+        <p class="prose-it mt-8" data-reveal>Un gioiello può nascere da zero: raccontaci l’idea o la pietra da reinterpretare.</p>
+        <a href="contatti.html" class="cta mt-10" data-reveal>Prenota una consulenza <span class="cta__arrow" aria-hidden="true"></span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-ivory-deep px-gutter pb-8 pt-section">
+  <div class="grid gap-y-12 md:grid-cols-12 md:gap-x-8">
+    <div class="md:col-span-6">
+      <p class="label label--gold">Contatti</p>
+      <a href="mailto:info@gregoryjewels.com" class="link-u link-u--on mt-6 font-serif text-[clamp(1.5rem,3vw,2.6rem)]">info@gregoryjewels.com</a>
+      <p class="label mt-8 leading-loose">Instagram<br><a class="link-u" href="https://www.instagram.com/gregoryjewels/">@gregoryjewels</a></p>
+    </div>
+    <nav class="md:col-span-4 md:col-start-9" aria-label="Piè di pagina">
+      <ul class="grid gap-1 font-serif text-2xl leading-tight">
+        <li><a class="link-u" href="maison.html">Maison</a></li>
+        <li><a class="link-u" href="collezioni.html">Collezioni</a></li>
+        <li><a class="link-u" href="../home-1-atelier.html#su-misura">Su Misura</a></li>
+        <li><a class="link-u" href="mestiere.html">Atelier</a></li>
+        <li><a class="link-u" href="journal.html">Journal</a></li>
+        <li><a class="link-u" href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="hair-t mt-24 flex flex-wrap items-center justify-between gap-x-8 gap-y-4 pt-6">
+    <a href="../home-1-atelier.html" class="logo-lock" aria-label="Gregory Jewels — Home"><img src="../img/logo-mark.png" width="269" height="400" alt=""><span class="logo-word">GREGORY JEWELS</span></a>
+    <ul class="label flex flex-wrap gap-x-6 gap-y-2 text-ink-soft">
+      <li><a class="link-u" href="https://www.gregoryjewels.com/privacy.html">Privacy</a></li>
+      <li><a class="link-u" href="https://www.gregoryjewels.com/cookie.html">Cookie</a></li>
+      <li><a class="link-u" href="https://www.gregoryjewels.com/termini.html">Termini</a></li>
+      <li>© 2026 Gregory Jewels</li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

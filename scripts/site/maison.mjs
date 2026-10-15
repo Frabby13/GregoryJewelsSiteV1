@@ -26,7 +26,7 @@ ${skip('focus:bg-ink focus:text-ivory')}
     </a>
     <nav class="hidden items-center justify-end gap-6 lg:flex xl:gap-8" aria-label="Secondaria">
       ${right.map((it) => navLink(it, active)).join('\n      ')}
-      ${boutiqueLink(x)}
+      ${boutiqueLink(x, active)}
     </nav>
     <button class="burger label justify-self-end lg:hidden" popovertarget="menu" aria-label="Apri il menu">Menu<span class="burger__bars" aria-hidden="true"></span></button>
   </div>
@@ -354,8 +354,99 @@ function contactPage() {
   return [from, shell(x, 'contatti', { title: 'Contatti', desc: 'Contatta Gregory Jewels: info@gregoryjewels.com. Ti riceviamo in atelier o in videochiamata.' }, body, { scripts: ['js/contact.js'] })];
 }
 
+// ---------------------------------------------------------------- Boutique (shop)
+import { buyBlock, specList, filterBar, cartSection, shopNote } from './shop-lib.mjs';
+import { shop, priceOf, collectionOf } from './data.mjs';
+
+function shopPage() {
+  const from = `${KEY}/boutique.html`;
+  const x = makeCtx(KEY, from);
+  const { u, R, img } = x;
+  const rows = Object.keys(pieces).map((s, i) => {
+    const p = pieces[s];
+    const href = u(R.product(s));
+    return `      <li class="hair-b grid items-center gap-x-8 gap-y-5 py-10 md:grid-cols-[1fr_1fr_9rem_16rem]" data-cat="${collectionOf(s).slug}">
+        <div><p class="label ${p.bespoke ? 'label--gold' : 'text-ink-soft'}">${p.bespoke ? 'Su misura' : collectionOf(s).title}</p><h3 class="piece__name mt-2 text-h3"><a class="link-u" href="${href}">${p.name}</a></h3></div>
+        <p class="piece__spec md:text-base">${p.metal}${p.stones ? `<br>${p.stones}` : ''}</p>
+        <div><p class="price">${priceOf(s)}</p><a class="label link-u mt-2" href="${href}">Scopri</a></div>
+        <a href="${href}" class="block" tabindex="-1" aria-hidden="true"><div class="frame ${i % 2 ? 'aspect-[4/5]' : 'aspect-[3/2]'}">${img(p.img, '', { pos: p.pos })}</div></a>
+      </li>`;
+  }).join('\n');
+  const body = `${splitHead(x, { kicker: 'Maison · boutique', lines: ['Pezzi unici,', em('uno alla volta.')], intro: 'Otto gioielli, ciascuno in un solo esemplare. Scegli quello che ti parla e aggiungilo al carrello: l’atelier ti ricontatta per confermarlo.', cta: { href: '#catalogo', label: 'Sfoglia il catalogo' }, src: 'img/gallery-bracciale-oro.jpg', alt: 'Bracciale rigido in oro con motivi paisley tempestati di piccoli diamanti, su fondo rosato', pos: '50% 50%' })}
+
+  <section id="catalogo" class="bg-ivory-deep px-gutter py-section" aria-labelledby="h-cat">
+    <div class="flex flex-wrap items-end justify-between gap-6 hair-b pb-8">
+      <h2 id="h-cat" class="text-h2" data-reveal="mask">${maskLines([`Il ${em('catalogo')}`], 'reveal')}</h2>
+      ${filterBar()}
+    </div>
+    <ul>
+${rows}
+    </ul>
+    <p class="prose-it mt-12 text-sm">${shopNote}</p>
+  </section>
+
+${closing(x, { kicker: 'Su misura', lines: ['Cerchi qualcosa', em('di diverso?')], text: 'Un gioiello può nascere da zero: raccontaci l’idea o la pietra da reinterpretare.', ctaLabel: 'Prenota una consulenza', to: R.contact })}`;
+  return [from, shell(x, 'boutique', { title: 'Boutique', desc: 'La boutique Gregory Jewels: otto gioielli, ciascuno in un solo esemplare. Scegli un pezzo e aggiungilo al carrello.' }, body)];
+}
+
+function productPage(slug) {
+  const from = `${KEY}/boutique/${slug}.html`;
+  const x = makeCtx(KEY, from);
+  const { u, R, img } = x;
+  const p = pieces[slug];
+  const c = collectionOf(slug);
+  const rel = Object.keys(pieces).filter((s) => s !== slug);
+  const rail = rel.map((s) => {
+    const q = pieces[s];
+    return `      <li>
+        <a href="${u(R.product(s))}" class="block"><div class="frame aspect-[4/5]">${img(q.img, q.alt, { pos: q.pos })}</div>
+        <p class="piece__name mt-3">${q.name}</p><p class="piece__spec">${priceOf(s)}</p></a>
+      </li>`;
+  }).join('\n');
+  const body = `  <section class="grid md:grid-cols-2" aria-labelledby="h-page">
+    <div class="frame relative aspect-[4/5] md:sticky md:top-[4.5rem] md:aspect-auto md:h-[calc(100svh-4.5rem)]">
+      ${img(p.img, p.alt, { cls: 'settle-in', pos: p.pos, eager: true, style: '--d:.3' })}
+      <span class="curtain curtain--gold" aria-hidden="true"></span>
+      <span class="curtain" aria-hidden="true"></span>
+    </div>
+    <div class="flex flex-col justify-center gap-10 px-gutter py-12 md:py-20">
+      <p class="enter" style="--d:.1"><a class="label link-u" href="${u(R.shop)}">Boutique</a> <span class="label text-ink-soft" aria-hidden="true">/</span> <a class="label link-u" href="${u(R.collection(c.slug))}">${c.title}</a></p>
+      <div>
+        <p class="label label--gold enter" style="--d:.2">${p.bespoke ? 'Su misura' : 'Esemplare unico'}</p>
+        <h1 id="h-page" class="mt-4 text-[clamp(2.6rem,5vw,5.2rem)] leading-[.98] tracking-[-.015em]">
+          ${maskLines([p.name], 'enter', 0.25)}
+        </h1>
+        <p class="prose-it mt-4 enter" style="--d:.6">${pieceSpec(p)}</p>
+      </div>
+      <p class="lead max-w-[30rem] enter" style="--d:.7">${shop[slug].desc}</p>
+      <div class="enter" style="--d:.8">${buyBlock(x, slug)}</div>
+      <div class="max-w-[30rem]">${specList(slug)}<p class="prose-it mt-6 text-sm">${shopNote}</p></div>
+    </div>
+  </section>
+
+  <section class="bg-ink py-section text-ivory on-dark" aria-labelledby="h-altri">
+    <div class="flex flex-wrap items-end justify-between gap-6 px-gutter pb-12">
+      <h2 id="h-altri" class="text-h2" data-reveal="mask">${maskLines([`Altri ${em('pezzi')}`], 'reveal')}</h2>
+      <a class="label link-u" href="${u(R.shop)}">Tutta la boutique</a>
+    </div>
+    <ol class="rail" tabindex="0" aria-label="Altri pezzi della boutique">
+${rail}
+    </ol>
+  </section>`;
+  return [from, shell(x, 'boutique', { title: p.name + ' — Boutique', desc: shop[slug].desc }, body)];
+}
+
+function cartPage() {
+  const from = `${KEY}/carrello.html`;
+  const x = makeCtx(KEY, from);
+  const body = `${splitHead(x, { kicker: 'Maison · carrello', lines: ['Il tuo', em('carrello.')], intro: 'Ogni pezzo è un esemplare unico, quindi qui compare una volta sola. Quando sei pronto, chiedi l’ordine: ti risponde l’atelier.', src: 'img/hero-contatti.jpg', alt: 'Bracciali in oro su cuscinetti di velluto in una vetrina luminosa', pos: '50% 50%', min: 'md:min-h-[calc(60svh-4.5rem)]' })}
+
+${cartSection(x, { wrap: 'bg-ivory-deep px-gutter py-section' })}`;
+  return [from, shell(x, 'carrello', { title: 'Carrello', desc: 'Il tuo carrello Gregory Jewels.' }, body)];
+}
+
 export function build() {
-  const out = [collectionsPage(), ...collections.map(collectionPage), maisonPage(), mestierePage(), journalPage(), ...articles.map(articlePage), contactPage()];
+  const out = [shopPage(), ...Object.keys(pieces).map(productPage), cartPage(), collectionsPage(), ...collections.map(collectionPage), maisonPage(), mestierePage(), journalPage(), ...articles.map(articlePage), contactPage()];
   out.forEach(([p, h]) => write(p, h));
   return out.map(([p]) => p);
 }

@@ -22,7 +22,7 @@ ${skip('focus:bg-gold focus:text-ink')}
     </a>
     <nav class="hidden items-center gap-7 lg:flex xl:gap-9 enter-fade" style="--d:.1" aria-label="Principale">
       ${items.map((it) => navLink(it, active)).join('\n      ')}
-      ${boutiqueLink(x)}
+      ${boutiqueLink(x, active)}
     </nav>
     <button class="burger label lg:hidden" popovertarget="menu" aria-label="Apri il menu">Menu<span class="burger__bars" aria-hidden="true"></span></button>
   </div>
@@ -332,8 +332,104 @@ function contactPage() {
   return [from, shell(x, 'contatti', { title: 'Contatti', desc: 'Contatta Gregory Jewels: info@gregoryjewels.com. Ti riceviamo in atelier o in videochiamata.' }, body, { scripts: ['js/contact.js'] })];
 }
 
+// ---------------------------------------------------------------- Boutique (shop)
+import { buyBlock, specList, filterBar, cartSection, shopNote } from './shop-lib.mjs';
+import { shop, priceOf, collectionOf } from './data.mjs';
+
+const shopCard = (x, slug, extra = '') => {
+  const p = pieces[slug];
+  return `<li class="piece bg-night-2${extra}" data-cat="${collectionOf(slug).slug}">
+        <a href="${x.u(x.R.product(slug))}" class="group block p-6 md:p-8">
+          <div class="frame aspect-[4/5]">${x.img(p.img, p.alt, { pos: p.pos })}</div>
+          <div class="piece__meta mt-5">
+            ${p.bespoke ? '<span class="label label--gold">Su misura</span>' : `<span class="label label--gold">${collectionOf(slug).title}</span>`}
+            <h3 class="piece__name"><span class="link-u">${p.name}</span></h3>
+            <p class="piece__spec">${pieceSpec(p)}</p>
+            <p class="price mt-2 text-[1.35rem]">${priceOf(slug)}</p>
+          </div>
+        </a>
+      </li>`;
+};
+
+function shopPage() {
+  const from = `${KEY}/boutique.html`;
+  const x = makeCtx(KEY, from);
+  const { R } = x;
+  const cards = Object.keys(pieces).map((s) => shopCard(x, s)).join('\n      ');
+  const body = `${scene(x, { src: 'img/gallery-anello-solitario.jpg', alt: 'Anello solitario con diamante taglio brillante in castone di oro rosa e pavé, su base nera', pos: '50% 50%', kicker: 'Boutique', h1: split(['Pezzi unici,', 'uno alla volta.']), intro: 'Otto gioielli, ciascuno in un solo esemplare. Scegli quello che ti parla e aggiungilo al carrello.', min: '78svh', cta: { href: '#elenco', label: 'Guarda i pezzi' } })}
+
+  <section id="elenco" class="px-gutter py-section" aria-labelledby="h-elenco">
+    <div class="flex flex-wrap items-end justify-between gap-6 pb-12">
+      <h2 id="h-elenco" class="text-h2" data-reveal="mask"><span class="ml"><span>Tutti i ${gold('pezzi')}</span></span></h2>
+      ${filterBar()}
+    </div>
+    <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      ${cards}
+    </ul>
+    <p class="prose-it mt-16 text-sm">${shopNote}</p>
+  </section>
+
+${closing(x, { lines: ['Cerchi qualcosa', gold('di diverso?')], text: 'Un gioiello può nascere da zero: raccontaci l’idea o la pietra da reinterpretare.', ctaLabel: 'Prenota una consulenza', to: R.contact })}`;
+  return [from, shell(x, 'boutique', { title: 'Boutique', desc: 'La boutique Gregory Jewels: otto gioielli, ciascuno in un solo esemplare. Scegli un pezzo e aggiungilo al carrello.' }, body)];
+}
+
+function productPage(slug) {
+  const from = `${KEY}/boutique/${slug}.html`;
+  const x = makeCtx(KEY, from);
+  const { u, R, img } = x;
+  const p = pieces[slug];
+  const c = collectionOf(slug);
+  const rel = Object.keys(pieces).filter((s) => s !== slug && collectionOf(s).slug !== c.slug).slice(0, 4);
+  const body = `  <section class="px-gutter pb-3 pt-24 md:pt-28" aria-labelledby="h-page">
+    <p class="enter-fade"><a class="label link-u" href="${u(R.shop)}">Boutique</a> <span class="label opacity-60" aria-hidden="true">/</span> <a class="label link-u" href="${u(R.collection(c.slug))}">${c.title}</a></p>
+    <div class="mt-6 grid gap-3 md:grid-cols-12">
+      <div class="frame enter-unveil aspect-[4/5] md:col-span-7 md:aspect-auto md:h-[calc(100svh-9rem)]" style="--d:0">${img(p.img, p.alt, { cls: 'kenburns', pos: p.pos, eager: true })}</div>
+      <div class="flex flex-col justify-end bg-night-2 p-6 md:col-span-5 md:p-12">
+        <p class="label label--gold enter-fade" style="--d:.3">${p.bespoke ? 'Su misura' : 'Esemplare unico'}</p>
+        <h1 id="h-page" class="words mt-5 text-[clamp(2.6rem,5vw,5rem)] leading-[.98]">${words(p.name.split(' '), 1)}</h1>
+        <span class="enter-draw mt-8 block h-px w-full bg-gold" style="--d:.7" aria-hidden="true"></span>
+        <p class="prose-it mt-6 enter" style="--d:.85">${pieceSpec(p)}</p>
+        <p class="lead mt-6 enter" style="--d:.95">${shop[slug].desc}</p>
+        <div class="mt-10 enter" style="--d:1.05">${buyBlock(x, slug)}</div>
+        <div class="mt-12">${specList(slug)}</div>
+        <p class="prose-it mt-6 text-sm">${shopNote}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="full relative mt-3 grid min-h-[70svh] items-end overflow-clip" aria-label="Dal banco">
+    <div class="frame" data-reveal="image">${img(c.bench.img, c.bench.alt, { pos: c.bench.pos })}</div>
+    <p class="label relative z-10 px-gutter pb-10" data-reveal>${c.bench.cap}</p>
+  </section>
+
+  <section class="px-gutter py-section" aria-labelledby="h-altri">
+    <div class="flex flex-wrap items-end justify-between gap-6 pb-12">
+      <h2 id="h-altri" class="text-h2" data-reveal="mask"><span class="ml"><span>Altri ${gold('pezzi')}</span></span></h2>
+      <a class="label link-u" href="${u(R.shop)}">Tutta la boutique</a>
+    </div>
+    <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      ${rel.map((s) => shopCard(x, s)).join('\n      ')}
+    </ul>
+  </section>`;
+  return [from, shell(x, 'boutique', { title: p.name + ' — Boutique', desc: shop[slug].desc }, body)];
+}
+
+function cartPage() {
+  const from = `${KEY}/carrello.html`;
+  const x = makeCtx(KEY, from);
+  const body = `  <section class="px-gutter pb-12 pt-36 md:pt-44" aria-labelledby="h-page">
+    <p class="label label--gold enter-fade" style="--d:.2">Carrello</p>
+    <h1 id="h-page" class="words mt-6 text-hero">${split(['Il tuo', 'carrello.'])}</h1>
+    <span class="enter-draw mt-10 block h-px w-full bg-gold" style="--d:.7" aria-hidden="true"></span>
+    <p class="prose-it mt-6 enter" style="--d:.85">Ogni pezzo è un esemplare unico, quindi qui compare una volta sola. Quando sei pronto, chiedi l’ordine: ti risponde l’atelier.</p>
+  </section>
+
+${cartSection(x, { wrap: 'px-gutter pb-section pt-8' })}`;
+  return [from, shell(x, 'carrello', { title: 'Carrello', desc: 'Il tuo carrello Gregory Jewels.' }, body)];
+}
+
 export function build() {
-  const out = [collectionsPage(), ...collections.map(collectionPage), maisonPage(), mestierePage(), journalPage(), ...articles.map(articlePage), contactPage()];
+  const out = [shopPage(), ...Object.keys(pieces).map(productPage), cartPage(), collectionsPage(), ...collections.map(collectionPage), maisonPage(), mestierePage(), journalPage(), ...articles.map(articlePage), contactPage()];
   out.forEach(([p, h]) => write(p, h));
   return out.map(([p]) => p);
 }

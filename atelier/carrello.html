@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carrello — Gregory Jewels</title>
+<meta name="description" content="Il tuo carrello Gregory Jewels.">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/cormorant-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../fonts/montserrat-300.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="../css/tailwind.css">
+<script src="../js/reveal.js"></script>
+<script src="../js/shop.js" defer></script>
+</head>
+<body class="atelier">
+
+<a href="#contenuto" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-ink focus:text-ivory focus:px-4 focus:py-2">Vai al contenuto</a>
+
+<header class="site-header sticky top-0 border-b border-hair bg-ivory">
+  <div class="flex items-center justify-between px-gutter py-3">
+    <a href="../home-1-atelier.html" class="logo-lock enter-fade" style="--d:0" aria-label="Gregory Jewels — Home">
+      <img src="../img/logo-mark.png" width="269" height="400" alt="">
+      <span class="logo-word">GREGORY JEWELS</span>
+    </a>
+    <nav class="hidden items-center gap-7 lg:flex xl:gap-9" aria-label="Principale">
+      <a class="nav-link link-u" href="maison.html">Maison</a>
+      <a class="nav-link link-u" href="collezioni.html">Collezioni</a>
+      <a class="nav-link link-u" href="../home-1-atelier.html#su-misura">Su Misura</a>
+      <a class="nav-link link-u" href="mestiere.html">Atelier</a>
+      <a class="nav-link link-u" href="journal.html">Journal</a>
+      <a class="nav-link link-u" href="contatti.html">Contatti</a>
+      <a class="nav-link link-u" href="boutique.html">Boutique</a>
+      <a class="nav-link link-u link-u--on" href="carrello.html" aria-current="page" data-cart-link>Carrello<span class="cart-count" data-cart-count hidden></span></a>
+    </nav>
+    <button class="burger label lg:hidden" popovertarget="menu" aria-label="Apri il menu">Menu<span class="burger__bars" aria-hidden="true"></span></button>
+  </div>
+</header>
+
+<nav id="menu" popover class="menu on-dark" aria-label="Menu principale">
+  <div class="flex h-full flex-col overflow-y-auto px-gutter py-3">
+    <div class="flex items-center justify-between">
+      <a class="logo-lock" href="../home-1-atelier.html" aria-label="Gregory Jewels — Home"><img src="../img/logo-mark-light.png" width="269" height="400" alt=""><span class="logo-word">GREGORY JEWELS</span></a>
+      <button class="burger label" popovertarget="menu" popovertargetaction="hide" aria-label="Chiudi il menu">Chiudi</button>
+    </div>
+    <ul class="my-auto py-8 font-serif text-[clamp(2.4rem,11vw,4.2rem)] leading-[1.15]">
+      <li class="menu__item" style="--i:0"><a href="maison.html">Maison</a></li>
+      <li class="menu__item" style="--i:1"><a href="collezioni.html">Collezioni</a></li>
+      <li class="menu__item" style="--i:2"><a href="../home-1-atelier.html#su-misura">Su Misura</a></li>
+      <li class="menu__item" style="--i:3"><a href="mestiere.html">Atelier</a></li>
+      <li class="menu__item" style="--i:4"><a href="journal.html">Journal</a></li>
+      <li class="menu__item" style="--i:5"><a href="contatti.html">Contatti</a></li>
+      <li class="menu__item" style="--i:6"><a href="boutique.html">Boutique</a></li>
+      <li class="menu__item" style="--i:7"><a href="carrello.html" aria-current="page" data-cart-link>Carrello<span class="cart-count" data-cart-count hidden></span></a></li>
+    </ul>
+    <p class="label label--gold pb-6">info@gregoryjewels.com · @gregoryjewels</p>
+  </div>
+</nav>
+
+<main id="contenuto">
+  <section class="px-gutter pb-16 pt-12 md:pb-24 md:pt-20" aria-labelledby="h-page">
+    <div class="grid gap-x-8 gap-y-10 md:grid-cols-12">
+      <p class="label label--gold enter md:col-span-3" style="--d:.05">Carrello</p>
+      <h1 id="h-page" class="text-[clamp(2.9rem,7.2vw,7.6rem)] leading-[.97] tracking-[-.015em] md:col-span-9">
+          <span class="ml enter-line"><span style="--d:0.15;--i:0">Il tuo</span></span>
+          <span class="ml enter-line"><span style="--d:0.15;--i:1"><em class="ml-i">carrello.</em></span></span>
+      </h1>
+      <p class="lead enter max-w-[34rem] md:col-span-5 md:col-start-4" style="--d:.6">Ogni pezzo è un esemplare unico, quindi qui compare una volta sola. Quando sei pronto, chiedi l’ordine: ti risponde l’atelier.</p>
+    </div>
+  </section>
+
+  <section class="bg-ivory-deep px-gutter py-section" aria-labelledby="h-carrello" data-cart-page data-mail="info@gregoryjewels.com">
+    <h2 id="h-carrello" class="sr-only">Il tuo carrello</h2>
+    <div data-cart-empty hidden>
+      <p class="lead max-w-[30rem]">Il carrello è vuoto.</p>
+      <p class="prose-it mt-4">Ogni gioiello è un esemplare unico: quando ne scegli uno, lo trovi qui.</p>
+      <a class="cta mt-8" href="boutique.html">Sfoglia la boutique <span class="cta__arrow" aria-hidden="true"></span></a>
+    </div>
+    <noscript><p class="lead">Il carrello richiede JavaScript. Per ordinare un pezzo scrivi a <a class="link-u link-u--on" href="mailto:info@gregoryjewels.com">info@gregoryjewels.com</a>.</p></noscript>
+    <div class="grid gap-x-10 gap-y-12 lg:grid-cols-[minmax(0,1fr)_22rem]" data-cart-full hidden>
+      <ul data-cart-list aria-label="Pezzi nel carrello"></ul>
+      <aside class="cart-summary" aria-labelledby="h-riepilogo">
+        <h3 id="h-riepilogo" class="label label--gold">Riepilogo</h3>
+        <dl class="mt-6 grid gap-3 text-sm">
+          <div class="flex justify-between gap-4"><dt>Pezzi</dt><dd data-cart-n></dd></div>
+          <div class="flex justify-between gap-4"><dt>Spedizione</dt><dd>Da concordare</dd></div>
+          <div class="hair-t flex items-baseline justify-between gap-4 pt-4"><dt class="label">Totale</dt><dd class="price" data-cart-total></dd></div>
+        </dl>
+        <a class="cta mt-8 w-full justify-between" data-checkout href="mailto:info@gregoryjewels.com">Richiedi l’ordine <span class="cta__arrow" aria-hidden="true"></span></a>
+        <p class="prose-it mt-5 text-sm">Il sito non incassa pagamenti: il pulsante apre la tua posta con l’elenco dei pezzi già pronto, indirizzato a info@gregoryjewels.com. L’atelier conferma disponibilità e modalità di pagamento.</p>
+        <p class="prose-it mt-3 text-sm">Prezzi e condizioni di spedizione sono segnaposto dimostrativi, in attesa dei dati dell’atelier.</p>
+      </aside>
+    </div>
+    <script type="application/json" id="catalog">{"creoli-torchon":{"name":"Creoli Torchon","spec":"Oro giallo 18 kt","price":2400,"img":"../img/filosofia-orecchini-oro.jpg","href":"boutique/creoli-torchon.html","w":1200,"h":1800},"lobo-lumiere":{"name":"Lobo Lumière","spec":"Oro bianco · Diamanti taglio brillante, halo","price":3800,"img":"../img/lab-incastonatura.jpg","href":"boutique/lobo-lumiere.html","w":900,"h":582},"notte-blu":{"name":"Notte Blu","spec":"Pendenti · Pietra blu a goccia, baguette","price":2950,"img":"../img/gallery-orecchini-pendenti.jpg","href":"boutique/notte-blu.html","w":900,"h":1350},"solitario-aurora":{"name":"Solitario Aurora","spec":"Platino e oro rosa 18 kt · Diamante taglio brillante, pavé","price":6900,"img":"../img/gallery-anello-solitario.jpg","href":"boutique/solitario-aurora.html","w":900,"h":600},"luna-crescente":{"name":"Luna Crescente","spec":"Oro giallo 18 kt · Pietra di colore, brillanti","price":4200,"img":"../img/gallery-collana-pietra-colore.jpg","href":"boutique/luna-crescente.html","w":900,"h":1350},"bracciale-paisley":{"name":"Bracciale Paisley","spec":"Oro giallo e bianco · Pavé di diamanti","price":8500,"img":"../img/gallery-bracciale-oro.jpg","href":"boutique/bracciale-paisley.html","w":900,"h":600}}</script>
+  </section>
+</main>
+
+<footer class="bg-ivory-deep px-gutter pb-8 pt-section">
+  <div class="grid gap-y-12 md:grid-cols-12 md:gap-x-8">
+    <div class="md:col-span-6">
+      <p class="label label--gold">Contatti</p>
+      <a href="mailto:info@gregoryjewels.com" class="link-u link-u--on mt-6 font-serif text-[clamp(1.5rem,3vw,2.6rem)]">info@gregoryjewels.com</a>
+      <p class="label mt-8 leading-loose">Instagram<br><a class="link-u" href="https://www.instagram.com/gregoryjewels/">@gregoryjewels</a></p>
+    </div>
+    <nav class="md:col-span-4 md:col-start-9" aria-label="Piè di pagina">
+      <ul class="grid gap-1 font-serif text-2xl leading-tight">
+        <li><a class="link-u" href="maison.html">Maison</a></li>
+        <li><a class="link-u" href="collezioni.html">Collezioni</a></li>
+        <li><a class="link-u" href="../home-1-atelier.html#su-misura">Su Misura</a></li>
+        <li><a class="link-u" href="mestiere.html">Atelier</a></li>
+        <li><a class="link-u" href="journal.html">Journal</a></li>
+        <li><a class="link-u" href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="hair-t mt-24 flex flex-wrap items-center justify-between gap-x-8 gap-y-4 pt-6">
+    <a href="../home-1-atelier.html" class="logo-lock" aria-label="Gregory Jewels — Home"><img src="../img/logo-mark.png" width="269" height="400" alt=""><span class="logo-word">GREGORY JEWELS</span></a>
+    <ul class="label flex flex-wrap gap-x-6 gap-y-2 text-ink-soft">
+      <li><a class="link-u" href="https://www.gregoryjewels.com/privacy.html">Privacy</a></li>
+      <li><a class="link-u" href="https://www.gregoryjewels.com/cookie.html">Cookie</a></li>
+      <li><a class="link-u" href="https://www.gregoryjewels.com/termini.html">Termini</a></li>
+      <li>© 2026 Gregory Jewels</li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
